@@ -15,6 +15,7 @@
     <script>
         AFRAME.registerComponent('detectEvent', {
             init: function () {
+                console.log('detectEvent registered');
                 const marker = document.querySelector('#marker');
                 marker.addEventListener('markerFound', () => {
                     console.log("Marker found. Marker position: ", marker.object3D.position);
