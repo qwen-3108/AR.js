@@ -16,9 +16,17 @@
         AFRAME.registerComponent('detectevent', {
             init: function () {
                 console.log('detectEvent registered');
+                console.log('entity.object3D.position: ', this.el.object3D.position);
+                console.log('entity.object3D.visible: ', this.el.object3D.visible);
+                console.log('scene.object3D.position: ', this.el.sceneEl.object3D.position);
+                console.log('scene.object3D.visible: ', this.el.sceneEl.object3D.visible);
+
                 const marker = document.querySelector('#marker');
                 marker.addEventListener('markerFound', () => {
                     console.log("Marker found. Marker position: ", marker.object3D.position);
+                    console.log('entity.object3D.visible: ', marker.object3D.visible);
+                    console.log('scene.object3D.visible: ', marker.sceneEl.object3D.visible);
+                    marker.sceneEl.object3D.visible = true;
                 });
             },
             tick: function () {
@@ -29,9 +37,12 @@
     <a-scene id="scene" embedded
         arjs="detectionMode: mono_and_matrix; matrixCodeType: 4x4_BCH_13_9_3; debugUIEnabled: false;">
 
-        <a-marker-camera id="marker" detectevent preset="hiro">
-            <a-box position="0 0 -1" color="blue"></a-box>
+        <a-marker-camera id="marker" detectevent type="barcode" value="1">
+            <a-box position="0 0 -5" rotation="0 45 45" color="blue"></a-box>
         </a-marker-camera>
+        <!-- <a-marker-camera id="marker" detectevent preset="hiro">
+            <a-box position="0 0 -1" color="blue"></a-box>
+        </a-marker-camera> -->
         <a-entity camera></a-entity>
     </a-scene>
 
