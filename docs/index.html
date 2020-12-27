@@ -21,7 +21,7 @@
         <a-entity camera></a-entity>
     </a-scene>
     <script>
-        AFrame.registerComponent('detectEvent', {
+        AFRAME.registerComponent('detectEvent', {
             init: function () {
                 const marker = document.querySelector('#marker');
                 marker.addEventListener('markerFound', () => {
