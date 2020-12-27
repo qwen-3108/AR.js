@@ -13,7 +13,7 @@
 
 <body>
     <script>
-        AFRAME.registerComponent('detectEvent', {
+        AFRAME.registerComponent('detectevent', {
             init: function () {
                 console.log('detectEvent registered');
                 const marker = document.querySelector('#marker');
@@ -29,7 +29,7 @@
     <a-scene id="scene" embedded
         arjs="detectionMode: mono_and_matrix; matrixCodeType: 4x4_BCH_13_9_3; debugUIEnabled: false;">
 
-        <a-marker id="marker" detectEvent preset="hiro">
+        <a-marker id="marker" detectevent preset="hiro">
             <a-box position="0 0 -1" color="blue"></a-box>
         </a-marker>
         <a-entity camera></a-entity>
